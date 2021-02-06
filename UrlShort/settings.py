@@ -25,7 +25,7 @@ SECRET_KEY = 'cbr4@&rz7_i9v-ibt@6&3_o^et=0+t2fhl56p07_fm%s8zygn#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shortit.com','www.shortit.com', 'blog.shortit.com','urllshort.herokuapp.com', ]
+ALLOWED_HOSTS = ['urllshort.herokuapp.com', ]
 
 
 # Application definition
@@ -59,7 +59,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'UrlShort.urls'
 ROOT_HOSTCONF = 'UrlShort.hosts'  # Change `mysite` to the name of your project
 DEFAULT_HOST = 'www'  # Name of the default host, we will create it in the next steps
-PARENT_HOST = 'shortit.com:8000'
+PARENT_HOST = 'urllshort.herokuapp.com'
 
 TEMPLATES = [
     {
