@@ -131,4 +131,4 @@ STATIC_URL = '/static/'
 
 SHORTCODE_MAX = 15
 SHORTCODE_MIN = 6
-DEFAULT_REDIRECT_URL = 'http://www.shortit.com:8000'
+DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'
