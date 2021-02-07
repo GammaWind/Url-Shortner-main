@@ -58,8 +58,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'UrlShort.urls'
 ROOT_HOSTCONF = 'UrlShort.hosts'  # Change `mysite` to the name of your project
-DEFAULT_HOST = 'www'  # Name of the default host, we will create it in the next steps
-PARENT_HOST = 'urllshort.herokuapp.com'
+DEFAULT_HOST = 'urllshort'   # Name of the default host, we will create it in the next steps
+PARENT_HOST = 'herokuapp.com'
+DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'
 
 TEMPLATES = [
     {
