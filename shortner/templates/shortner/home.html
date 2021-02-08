@@ -10,7 +10,7 @@
         <p clas='lead'> Shorten that URL</p>
             <div class='col-sm-12 '>
                 <form method=POST action='.' >  {% csrf_token %} 
-                    <div class='form-group'>
+                    <div class='form-group' >
                     {% comment %} <input name='url' type=text placeholder='shorten your url'/> {% endcomment %}
                     {{ form.as_p }}
                     <input type=submit class='btn btn-primary' name='shorten' value='shorten>>'/>
