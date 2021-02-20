@@ -13,17 +13,14 @@ class SubmitUrlForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(SubmitUrlForm, self).clean()
+        cleaned_data = super(SubmitUrlForm, self).clean()
         
-        # url = cleaned_data['url']
+        if self.is_valid():
+            url = self.cleaned_data['url']
+            newurl = validate_url(url)
+            self.cleaned_data['url'] = newurl
         
-        # url_validator = URLValidator()
-        
-        # try:
-        #     url_validator(url)
-        # except:
-        #     raise forms.ValidationError('Invalid URL for this field')    
-
-        # print(url)
+       
 
     # def clean_url(self):
         
