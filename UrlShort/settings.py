@@ -25,7 +25,7 @@ SECRET_KEY = 'cbr4@&rz7_i9v-ibt@6&3_o^et=0+t2fhl56p07_fm%s8zygn#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['urllshort.herokuapp.com', ]
+ALLOWED_HOSTS = ['urllshort.herokuapp.com','127.0.0.1','www.short.com' ]
 
 
 # Application definition
@@ -56,11 +56,20 @@ MIDDLEWARE = [
     'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
+#test
 ROOT_URLCONF = 'UrlShort.urls'
-ROOT_HOSTCONF = 'UrlShort.hosts'  # Change `mysite` to the name of your project
-DEFAULT_HOST = 'urllshort'   # Name of the default host, we will create it in the next steps
-PARENT_HOST = 'herokuapp.com'
-DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'
+ROOT_HOSTCONF = 'UrlShort.hosts'  
+DEFAULT_HOST = 'www' 
+PARENT_HOST = 'short.com:8000'
+DEFAULT_REDIRECT_URL = 'http://www.short.com:8000' 
+
+
+#prod 
+# ROOT_URLCONF = 'UrlShort.urls'
+# ROOT_HOSTCONF = 'UrlShort.hosts' 
+# DEFAULT_HOST = 'urllshort'
+# PARENT_HOST = 'herokuapp.com' 
+# DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'  
 
 TEMPLATES = [
     {
@@ -132,4 +141,4 @@ STATIC_URL = '/static/'
 
 SHORTCODE_MAX = 15
 SHORTCODE_MIN = 6
-DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'
+
