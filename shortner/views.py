@@ -66,14 +66,14 @@ class HomeView(View):
                 shorturl = obj.get_short_url()
                 
                 
-                sent = send_mail(subject='Shortend URL',message='Hi, your shortned URL for ' + obj.url + ' is ' + shorturl
-                ,recipient_list=[created_by_email],from_email='urllshort5@gmail.com')
-                print(sent)
-                print('here')
+                
 
             else:
                 tempelate = 'already-exist.html'
-    
+
+            sent = send_mail(subject='Shortend URL',message='Hi, your shortned URL for ' + obj.url + ' is ' + shorturl,recipient_list=[created_by_email],from_email='urllshort5@gmail.com')
+            print(sent)
+            print('here')
         
 
         return render(request,tempelate, context)    
