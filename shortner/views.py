@@ -7,6 +7,10 @@ from shortner.models import Krikurl
 from django.urls import reverse
 from .forms import SubmitUrlForm
 from analytics.models import ClickEvent
+from emailnotifications.models import userEmails
+
+from django.core.mail import send_mail
+
 
 # Create your views here.
 
@@ -32,6 +36,7 @@ class HomeView(View):
     def post(self,request,*args, **kwargs):
         my_dict = {}
         my_dict.get('url')
+        
         form = SubmitUrlForm(request.POST)
         context = {
             'title' : 'Short It !',
@@ -41,9 +46,14 @@ class HomeView(View):
         tempelate = 'shortner/home.html'
         
         if form.is_valid():
+            created_by_email = form.cleaned_data.get('email')
+            emailobj,create = userEmails.objects.get_or_create(email_ID = created_by_email)
+            created_by = emailobj
             
+
+
             new_url = form.cleaned_data.get('url')
-            obj, created = Krikurl.objects.get_or_create(url=new_url)
+            obj, created = Krikurl.objects.get_or_create(url=new_url,createdBy = created_by)
             context={
 
                 'object' : obj,
@@ -52,6 +62,15 @@ class HomeView(View):
             }
             if created:
                 tempelate = 'success.html'
+                #send email notification
+                shorturl = obj.get_short_url()
+                
+                
+                sent = send_mail(subject='Shortend URL',message='Hi, your shortned URL for ' + obj.url + ' is ' + shorturl
+                ,recipient_list=[created_by_email],from_email='urllshort5@gmail.com')
+                print(sent)
+                print('here')
+
             else:
                 tempelate = 'already-exist.html'
     
@@ -64,6 +83,7 @@ class HomeView(View):
 
 class url_redirect_viewCBV(View):
     def get(self,request, shortcode=None ,*args, **kwargs):
+        print('hello')
         obj_url = None
         obj = get_object_or_404(Krikurl,shortcode=shortcode)
         obj_url = obj.url
