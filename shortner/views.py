@@ -63,14 +63,14 @@ class HomeView(View):
             if created:
                 tempelate = 'success.html'
                 #send email notification
-                shorturl = obj.get_short_url()
+                
                 
                 
                 
 
             else:
                 tempelate = 'already-exist.html'
-
+            shorturl = obj.get_short_url()
             sent = send_mail(subject='Shortend URL',message='Hi, your shortned URL for ' + obj.url + ' is ' + shorturl,recipient_list=[created_by_email],from_email='urllshort5@gmail.com')
             print(sent)
             print('here')
