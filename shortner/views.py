@@ -9,6 +9,9 @@ from .forms import SubmitUrlForm
 from analytics.models import ClickEvent
 from emailnotifications.models import userEmails
 
+from django.core.mail import send_mail
+
+
 # Create your views here.
 
 def url_redirect_viewFBV(request, shortcode=None ,*args, **kwargs):
@@ -59,6 +62,15 @@ class HomeView(View):
             }
             if created:
                 tempelate = 'success.html'
+                #send email notification
+                shorturl = obj.get_short_url()
+                
+                
+                sent = send_mail(subject='Shortend URL',message='Hi, your shortned URL for ' + obj.url + ' is ' + shorturl
+                ,recipient_list=[created_by_email],from_email='urllshort5@gmail.com')
+                print(sent)
+                print('here')
+
             else:
                 tempelate = 'already-exist.html'
     

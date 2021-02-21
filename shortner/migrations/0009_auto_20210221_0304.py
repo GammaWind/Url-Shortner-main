@@ -16,5 +16,6 @@ class Migration(migrations.Migration):
             model_name='krikurl',
             name='createdBy',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='emailnotifications.useremails'),
+            
         ),
     ]

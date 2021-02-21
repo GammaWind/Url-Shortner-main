@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     #my
     'shortner',
     'analytics',
-    'emailnotifications'
+    'emailnotifications',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +143,12 @@ STATIC_URL = '/static/'
 SHORTCODE_MAX = 15
 SHORTCODE_MIN = 6
 
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'urllshort5@gmail.com'
+EMAIL_HOST_PASSWORD =  'url12345'
+EMAIL_USE_TLS = 'ON'
+# EMAIL_USE_SS = 
+DEFAULT_FROM_EMAIL  = 'urllshort5@gmail.com'
