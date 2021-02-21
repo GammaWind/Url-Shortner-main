@@ -1,8 +1,11 @@
+from django.db.models.deletion import CASCADE
 from UrlShort.settings import SHORTCODE_MAX
 from django.db import models
 from  django.conf import settings
 from .validators import validate_url,validate_url_com
 from django_hosts.resolvers import reverse
+from emailnotifications.models import userEmails
+
 
 from .utils import create_shortcode,code_generater
 SHORTCODE_MAX = getattr(settings,'SHORTCODE_MAX',15)
@@ -38,6 +41,9 @@ class Krikurl(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     active = models.BooleanField(default=True)
     objects = KrikurlManager()
+    createdBy = models.ForeignKey(userEmails,on_delete=models.CASCADE,unique=False)
+    
+    
 
 
     def save(self,*args, **kwargs):
@@ -53,6 +59,7 @@ class Krikurl(models.Model):
         return str(self.url)   
 
     def get_short_url(self):
-        short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='urllshort',scheme='http')
+        # short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='urllshort',scheme='http')
+        short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='www',scheme='http')
         return short_url
 

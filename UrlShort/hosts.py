@@ -10,4 +10,7 @@ host_patterns = patterns('',
     #test
     host(r'www', settings.ROOT_URLCONF, name='www'), 
     host(r'(?!www).*', 'UrlShort.hostsconf.urls', name='wildcard'),
+
+
+
 )

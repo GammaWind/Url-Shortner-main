@@ -1,8 +1,10 @@
 from django import forms
 from .validators import validate_url,validate_url_com
+from emailnotifications.validators import validate_Email
 
 class SubmitUrlForm(forms.Form):
     url = forms.CharField(label='Submit URL', validators=[validate_url])
+    email = forms.EmailField(label='Enter your Email', validators=[validate_Email])
 
 
     
