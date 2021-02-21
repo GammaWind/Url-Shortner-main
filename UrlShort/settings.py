@@ -57,20 +57,15 @@ MIDDLEWARE = [
     'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
-#test
-ROOT_URLCONF = 'UrlShort.urls'
-ROOT_HOSTCONF = 'UrlShort.hosts'  
-DEFAULT_HOST = 'www' 
-PARENT_HOST = 'short.com:8000'
-DEFAULT_REDIRECT_URL = 'http://www.short.com:8000' 
+
 
 
 #prod 
-# ROOT_URLCONF = 'UrlShort.urls'
-# ROOT_HOSTCONF = 'UrlShort.hosts' 
-# DEFAULT_HOST = 'urllshort'
-# PARENT_HOST = 'herokuapp.com' 
-# DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'  
+ROOT_URLCONF = 'UrlShort.urls'
+ROOT_HOSTCONF = 'UrlShort.hosts' 
+DEFAULT_HOST = 'urllshort'
+PARENT_HOST = 'herokuapp.com' 
+DEFAULT_REDIRECT_URL = 'https://urllshort.herokuapp.com/'  
 
 TEMPLATES = [
     {
