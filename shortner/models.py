@@ -59,7 +59,9 @@ class Krikurl(models.Model):
         return str(self.url)   
 
     def get_short_url(self):
-        # short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='urllshort',scheme='http')
-        short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='www',scheme='http')
+        #prod
+        short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='urllshort',scheme='http')
+        #TEST
+        # short_url = reverse('scode',kwargs={'shortcode' : self.shortcode}, host='www',scheme='http')
         return short_url
 

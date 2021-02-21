@@ -17,4 +17,3 @@ def wildcard_redirect(request, path=None):
 
 
 
-
