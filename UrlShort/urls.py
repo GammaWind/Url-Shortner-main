@@ -27,7 +27,7 @@ from shortner.views import url_redirect_viewFBV,url_redirect_viewCBV,HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$',HomeView.as_view()),
-    re_path(r'^a/(?P<shortcode>[\w-]+)/$',url_redirect_viewCBV.as_view()),
+    # re_path(r'^a/(?P<shortcode>[\w-]+)/$',url_redirect_viewCBV.as_view()),
     re_path(r'^(?P<shortcode>[\w-]+)/$',url_redirect_viewFBV,name='scode'),
     
      
