@@ -94,12 +94,19 @@ WSGI_APPLICATION = 'UrlShort.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+import dj_database_url
+
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['Default'] =  dj_database_url.parse('postgres://avbpnggntoacux:b6aa70e302afcbf8d50a444e0823c67544037875150518e0a1553276cd999e28@ec2-54-145-249-177.compute-1.amazonaws.com:5432/d3rc3svv1i6i3l ')
 
 
 # Password validation
