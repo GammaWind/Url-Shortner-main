@@ -19,7 +19,7 @@ class ClickEventManager(models.Manager):
 class userEmails(models.Model):
     
     email_ID = models.EmailField(max_length=254,validators=[validate_Email],null=False,unique=True)
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     
     objects = ClickEventManager()
 
